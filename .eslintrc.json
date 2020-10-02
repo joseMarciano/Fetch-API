@@ -15,7 +15,8 @@
         "no-shadow":"off",
         "no-unused-vars": "warn",
         "eol-last": "off",
-        "indent": "off"
+        "indent": "off",
+        "comma-dangle":"off"
     }
 
 }

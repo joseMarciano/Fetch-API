@@ -12,6 +12,6 @@ const showClient = (name, cpf) => {
 };
 
 // eslint-disable-next-line no-undef
-listarClientes().then((clients) => {
+listClients().then((clients) => {
     clients.forEach((client) => bodyTable.appendChild(showClient(client.nome, client.cpf)));
 });
