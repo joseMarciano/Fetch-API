@@ -12,10 +12,11 @@ const saveClient = (name, cpf) => {
         cpf:cpf
     }); */
     const dataConverted = JSON.stringify({
-        name,
+        nome: name,
+        /* nesse caso precisei fazer o parsing de
+                           'nAme' para 'nOme' por causa do back-end */
         cpf
     });
-
     return fetch(`${URL_HOST}/cliente`, {
         method: 'POST',
         headers: {
