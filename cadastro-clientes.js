@@ -11,6 +11,8 @@ function sendData(event) {
         saveClient(nameField, cpfField).then(() => {
             // eslint-disable-next-line no-alert
             alert('Cliente salvo com sucesso!!');
+            // eslint-disable-next-line no-restricted-globals
+            location.reload(); // Atualiza a página
         });
     } else {
         // eslint-disable-next-line no-alert

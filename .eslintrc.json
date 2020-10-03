@@ -18,7 +18,8 @@
         "indent": "off",
         "comma-dangle":"off",
         "no-plusplus":"off",
-        "operator-linebreak":"off"
+        "operator-linebreak":"off",
+        "max-len": "off"
     }
 
 }

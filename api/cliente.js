@@ -25,3 +25,7 @@ const saveClient = (name, cpf) => {
         body: dataConverted
     }).then((response) => response.body);
 };
+
+const deleteClient = (id) => fetch(`${URL_HOST}/cliente/${id}`, {
+    method: 'DELETE'
+});
