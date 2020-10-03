@@ -1,4 +1,4 @@
-function defaultInvalidCPFs(value) {
+function verifyDefaultInvalidCPFs(value) {
     const invalidsCPF = [];
     let invalidConcat = '';
     let count = 0;
@@ -26,6 +26,31 @@ function sumNumbersCPF(cpf, totalDigits, peso) {
     return sum;
 }
 
-const cpfValidator = (value) => {
-    const invalidsCPF = defaultInvalidCPFs(value);
+function verifyDigits(cpf, totalDigits, peso, digitVerify) {
+    const sum = sumNumbersCPF(cpf, totalDigits, peso);
+    const rest = (sum * 10) % 11;
+    return rest === digitVerify;
+}
+
+function verifyFirstDigit(cpf) {
+    const peso = 11;
+    const totalDigitsFirstPart = 9;
+    const verificationDigit = parseInt(cpf.substring(9, 10), 10);
+
+    return verifyDigits(cpf, totalDigitsFirstPart, peso, verificationDigit);
+}
+
+function verifySecondDigit(cpf) {
+    const peso = 12;
+    const totalDigitsSecondPart = 10;
+    const verificationDigit = parseInt(cpf.substring(10, 11), 10);
+
+    return verifyDigits(cpf, totalDigitsSecondPart, peso, verificationDigit);
+}
+
+const cpfValidator = (cpf) => {
+    const cpfWithOnlyNumber = cpf.replace(/\D/g, ''); // usando Regexp, faço um replace em todos os digitos que não são numeros;
+    return verifyFirstDigit(cpfWithOnlyNumber) &&
+        verifySecondDigit(cpfWithOnlyNumber) &&
+        verifyDefaultInvalidCPFs(cpfWithOnlyNumber);
 };
