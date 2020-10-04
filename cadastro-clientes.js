@@ -8,7 +8,7 @@ function sendData(event) {
     // eslint-disable-next-line no-undef
     if (cpfValidator(cpfField)) {
         // eslint-disable-next-line no-undef
-        saveClient(nameField, cpfField).then(() => {
+        saveClientAPI(nameField, cpfField).then(() => {
             // eslint-disable-next-line no-alert
             alert('Cliente salvo com sucesso!!');
             // eslint-disable-next-line no-restricted-globals

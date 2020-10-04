@@ -1,12 +1,10 @@
 const URL_HOST = 'http://localhost:4000/clientes';
 
-const GET = fetch(URL_HOST);
-
 /* O fetch retorna uma promisse .then(pego o json da resposta)
 .then(retorno o json que vem como um array de objetos)
 */
-const listClients = () => GET.then((params) => params.json()).then((json) => json);
-const saveClient = (name, cpf) => {
+const listClientsAPI = () => fetch(URL_HOST).then((params) => params.json()).then((json) => json);
+const saveClientAPI = (name, cpf) => {
     /* const dataConverted = JSON.stringify({ poderia usar assim tbm
         name:name,
         cpf:cpf
@@ -26,6 +24,10 @@ const saveClient = (name, cpf) => {
     }).then((response) => response.body);
 };
 
-const deleteClient = (id) => fetch(`${URL_HOST}/cliente/${id}`, {
+const deleteClientAPI = (id) => fetch(`${URL_HOST}/cliente/${id}`, {
     method: 'DELETE'
 });
+
+const getClientByIdAPI = (id) => fetch(`${URL_HOST}/cliente/${id}`)
+    .then((params) => params.json())
+    .then((response) => response);
