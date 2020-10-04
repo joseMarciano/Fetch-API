@@ -19,7 +19,8 @@
         "comma-dangle":"off",
         "no-plusplus":"off",
         "operator-linebreak":"off",
-        "max-len": "off"
+        "max-len": "off",
+        "no-lonely-if": "off"
     }
 
 }

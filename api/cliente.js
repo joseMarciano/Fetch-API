@@ -31,3 +31,18 @@ const deleteClientAPI = (id) => fetch(`${URL_HOST}/cliente/${id}`, {
 const getClientByIdAPI = (id) => fetch(`${URL_HOST}/cliente/${id}`)
     .then((params) => params.json())
     .then((response) => response);
+
+const editClientAPI = (name, cpf, id) => {
+    const dataConverted = JSON.stringify({
+        id,
+        nome: name,
+        cpf
+    });
+    return fetch(`${URL_HOST}/cliente/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: dataConverted
+    }).then((response) => response.body);
+};
