@@ -7,14 +7,14 @@ function sendData(event) {
     const id = takeUrl.searchParams.get('id');
     const isEdit = id != null;
 
-    const cpfField = document.querySelector('[data-cpf]');
-    const nameField = document.querySelector('[data-nome]');
+    const cpfField = document.querySelector('[data-cpf]').value;
+    const nameField = document.querySelector('[data-nome]').value;
 
     if (isEdit) {
         // eslint-disable-next-line no-undef
-        if (cpfValidator(cpfField.value)) {
+        if (cpfValidator(cpfField)) {
             // eslint-disable-next-line no-undef
-            editClientAPI(nameField.value, cpfField.value, id).then(() => {
+            editClientAPI(nameField, cpfField, id).then(() => {
                 // eslint-disable-next-line no-alert
                 alert('Cliente editado com sucesso!!');
                 // eslint-disable-next-line no-restricted-globals
